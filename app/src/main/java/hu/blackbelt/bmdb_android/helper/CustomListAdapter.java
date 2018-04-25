@@ -10,8 +10,6 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import org.androidannotations.annotations.ViewById;
-
 import java.util.List;
 
 import hu.blackbelt.bmdb_android.R;
@@ -74,7 +72,7 @@ public class CustomListAdapter extends BaseAdapter {
         imageView.setImageResource(movie.getImageResId());
         title.setText(movie.getTitle());
         year.setText(Integer.toString(movie.getYear()));
-        genre.setText(movie.getDescription());
+        genre.setText(movie.getGenre());
 
         return convertView;
     }
