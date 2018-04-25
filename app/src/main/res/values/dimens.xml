@@ -18,4 +18,7 @@
     <dimen name="imageview_width_row_item">70dp</dimen>
     <dimen name="padding_row_item">8dp</dimen>
     <dimen name="divider_height">1dp</dimen>
+
+    <dimen name="imageview_height_about">135</dimen>
+    <dimen name="imageview_width_about">105</dimen>
 </resources>
