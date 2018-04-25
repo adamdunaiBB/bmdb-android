@@ -5,7 +5,7 @@ import android.util.Log;
 
 import java.util.List;
 
-import hu.blackbelt.bmdb_android.model.Movie;
+import hu.blackbelt.bmdb_android.common.model.MovieDataModel;
 
 public class MainPresenterImpl implements MainPresenter, MoviesInteractor.OnFinishedListener {
 
@@ -33,7 +33,7 @@ public class MainPresenterImpl implements MainPresenter, MoviesInteractor.OnFini
     }
 
     @Override
-    public void onFinished(List<Movie> movies) {
+    public void onFinished(List<MovieDataModel> movies) {
         if (mainView != null) {
             mainView.setMovies(movies);
         }

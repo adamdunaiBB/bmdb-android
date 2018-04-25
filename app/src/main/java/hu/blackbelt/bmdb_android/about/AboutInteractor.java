@@ -2,12 +2,12 @@ package hu.blackbelt.bmdb_android.about;
 
 
 
-import hu.blackbelt.bmdb_android.model.Movie;
+import hu.blackbelt.bmdb_android.common.model.MovieDataModel;
 
 public interface AboutInteractor {
 
     interface OnFinishedListener {
-        void onFinished(Movie movie);
+        void onFinished(MovieDataModel movie);
     }
 
     void getItems(OnFinishedListener listener, int i);

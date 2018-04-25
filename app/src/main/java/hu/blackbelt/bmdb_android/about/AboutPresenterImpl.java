@@ -1,7 +1,7 @@
 package hu.blackbelt.bmdb_android.about;
 
 
-import hu.blackbelt.bmdb_android.model.Movie;
+import hu.blackbelt.bmdb_android.common.model.MovieDataModel;
 
 public class AboutPresenterImpl implements AboutPresenter, AboutInteractor.OnFinishedListener {
 
@@ -26,7 +26,7 @@ public class AboutPresenterImpl implements AboutPresenter, AboutInteractor.OnFin
     }
 
     @Override
-    public void onFinished(Movie movie) {
+    public void onFinished(MovieDataModel movie) {
         if (aboutView != null) {
             aboutView.setMovie(movie);
         }

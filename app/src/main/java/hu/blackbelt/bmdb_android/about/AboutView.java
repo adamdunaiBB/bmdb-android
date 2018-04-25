@@ -1,10 +1,10 @@
 package hu.blackbelt.bmdb_android.about;
 
 
-import hu.blackbelt.bmdb_android.model.Movie;
+import hu.blackbelt.bmdb_android.common.model.MovieDataModel;
 
 public interface AboutView {
 
-    void setMovie(Movie movie);
+    void setMovie(MovieDataModel movie);
 
 }

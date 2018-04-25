@@ -1,7 +1,7 @@
 package hu.blackbelt.bmdb_android.main;
 
 
-import hu.blackbelt.bmdb_android.mock.MockData;
+import hu.blackbelt.bmdb_android.common.mock.MockData;
 
 public class MoviesInteractorImpl implements MoviesInteractor{
 

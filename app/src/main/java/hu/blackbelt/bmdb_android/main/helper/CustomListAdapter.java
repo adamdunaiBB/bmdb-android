@@ -1,4 +1,4 @@
-package hu.blackbelt.bmdb_android.helper;
+package hu.blackbelt.bmdb_android.main.helper;
 
 
 import android.app.Activity;
@@ -13,7 +13,7 @@ import android.widget.TextView;
 import java.util.List;
 
 import hu.blackbelt.bmdb_android.R;
-import hu.blackbelt.bmdb_android.model.Movie;
+import hu.blackbelt.bmdb_android.common.model.MovieDataModel;
 
 public class CustomListAdapter extends BaseAdapter {
 
@@ -31,9 +31,9 @@ public class CustomListAdapter extends BaseAdapter {
 
     private Activity activity;
     private LayoutInflater layoutInflater;
-    private List<Movie> movieList;
+    private List<MovieDataModel> movieList;
 
-    public CustomListAdapter(Activity activity, List<Movie> movieList) {
+    public CustomListAdapter(Activity activity, List<MovieDataModel> movieList) {
         this.activity = activity;
         this.movieList = movieList;
     }
@@ -67,7 +67,7 @@ public class CustomListAdapter extends BaseAdapter {
         TextView year = convertView.findViewById(R.id.row_item_year);
         TextView genre = convertView.findViewById(R.id.row_item_genre);
 
-        Movie movie = movieList.get(position);
+        MovieDataModel movie = movieList.get(position);
 
         imageView.setImageResource(movie.getImageResId());
         title.setText(movie.getTitle());
