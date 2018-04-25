@@ -37,11 +37,6 @@ public class AboutActivity extends AppCompatActivity implements AboutView{
     private AboutPresenter aboutPresenter;
     private int i;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
-
     @AfterViews
     void afterViews() {
         aboutPresenter = new AboutPresenterImpl(this, new AboutInteractorImpl(), i);
@@ -57,8 +52,8 @@ public class AboutActivity extends AppCompatActivity implements AboutView{
     public void setMovie(Movie movie) {
         title.setText(movie.getTitle());
         imageView.setImageResource(movie.getImageResId());
-        year.setText(Integer.toString(movie.getYear()));
-        genre.setText(movie.getGenre());
+        year.setText(String.format("Year: %s", Integer.toString(movie.getYear())));
+        genre.setText(String.format("Genre: %s", movie.getGenre()));
         description.setText(movie.getDescription());
     }
 }

@@ -28,7 +28,6 @@ public class MainActivity extends AppCompatActivity implements MainView, Adapter
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
 
     @AfterViews
@@ -45,9 +44,7 @@ public class MainActivity extends AppCompatActivity implements MainView, Adapter
 
     @Override
     public void setMovies(List<Movie> movies) {
-
         listView.setAdapter(new CustomListAdapter(this, movies));
-
     }
 
     @Override

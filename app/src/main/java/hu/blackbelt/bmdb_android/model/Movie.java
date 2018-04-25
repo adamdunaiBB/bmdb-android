@@ -1,19 +1,21 @@
 package hu.blackbelt.bmdb_android.model;
 
 
+import android.support.annotation.DrawableRes;
+
 import java.io.Serializable;
 
 public class Movie implements Serializable {
 
-    private String title;
-    private int year;
-    private String genre;
-    private String description;
+    private final String title;
+    private final int year;
+    private final String genre;
+    private final String description;
 
-    //@DrawableRes
-    private int imageResId;
+    @DrawableRes
+    private final int imageResId;
 
-    public Movie(String title, int year, String genre, String description, int imageResId) {
+    public Movie(String title, int year, String genre, String description, @DrawableRes int imageResId) {
         this.title = title;
         this.year = year;
         this.genre = genre;

@@ -24,7 +24,7 @@
         android:layout_height="@dimen/imageview_height_about"
         android:layout_below="@id/about_title"
         android:layout_marginEnd="@dimen/margin_default"
-        android:src="@drawable/the_shawshank_redemption" />
+        tools:src="@drawable/the_shawshank_redemption" />
 
     <LinearLayout
         android:layout_width="wrap_content"
