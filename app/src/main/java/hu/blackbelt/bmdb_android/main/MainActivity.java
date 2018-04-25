@@ -15,7 +15,7 @@ import java.util.List;
 import hu.blackbelt.bmdb_android.R;
 import hu.blackbelt.bmdb_android.about.AboutActivityImpl;
 import hu.blackbelt.bmdb_android.common.model.MovieDataModel;
-import hu.blackbelt.bmdb_android.main.helper.CustomListAdapter;
+import hu.blackbelt.bmdb_android.main.adapter.CustomListAdapter;
 
 @EActivity(R.layout.activity_main)
 public class MainActivity extends AppCompatActivity implements MainView, AdapterView.OnItemClickListener {
@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity implements MainView, Adapter
 
     @Override
     public void setMovies(List<MovieDataModel> movies) {
-        listView.setAdapter(new CustomListAdapter(this, movies));
+        listView.setAdapter(new CustomListAdapter(movies));
     }
 
     @Override
