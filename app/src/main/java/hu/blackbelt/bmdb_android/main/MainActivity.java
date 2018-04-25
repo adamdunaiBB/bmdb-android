@@ -13,6 +13,7 @@ import org.androidannotations.annotations.ViewById;
 import java.util.List;
 
 import hu.blackbelt.bmdb_android.R;
+import hu.blackbelt.bmdb_android.about.AboutActivityImpl;
 import hu.blackbelt.bmdb_android.helper.CustomListAdapter;
 import hu.blackbelt.bmdb_android.model.Movie;
 
@@ -51,6 +52,7 @@ public class MainActivity extends AppCompatActivity implements MainView, Adapter
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        AboutActivityImpl.intent(getApplicationContext()).clickPosition(position).start();
         mPresenter.onItemClicked(position);
     }
 }
