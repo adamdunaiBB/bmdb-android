@@ -9,13 +9,21 @@ import hu.blackbelt.bmdb_android.common.model.MovieDataModel;
 
 public class RecyclerViewAdapter extends RecyclerViewAdapterBase<MovieDataModel, MainRowItemView> {
 
+    private MainRowItemView.OnItemClickedListener onItemClickedListener;
+
     public RecyclerViewAdapter(List<MovieDataModel> items) {
         super(items);
     }
 
+    public void setOnItemClickedListener(MainRowItemView.OnItemClickedListener onItemClickedListener) {
+        this.onItemClickedListener = onItemClickedListener;
+    }
+
     @Override
     protected MainRowItemView onCreateItemView(ViewGroup parent, int viewType) {
-        return MainRowItemViewImpl.build(parent.getContext());
+        MainRowItemView rowItemView = MainRowItemViewImpl.build(parent.getContext());
+        rowItemView.setOnItemClickedListener(onItemClickedListener);
+        return rowItemView;
     }
 
     @Override

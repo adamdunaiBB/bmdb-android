@@ -1,8 +1,10 @@
 package hu.blackbelt.bmdb_android.main.adapter;
 
 import android.content.Context;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -36,12 +38,21 @@ public class MainRowItemView extends LinearLayout {
 
     private MovieDataModel movieDataModel;
 
+    private OnItemClickedListener onItemClickedListener;
+
     public MainRowItemView(Context context) {
         super(context);
 
         setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT));
         setOrientation(LinearLayout.HORIZONTAL);
+
+        setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onItemClickedListener.onItemClicked(movieDataModel);
+            }
+        });
     }
 
     public MainRowItemView(Context context, @Nullable AttributeSet attrs) {
@@ -57,6 +68,10 @@ public class MainRowItemView extends LinearLayout {
         setPadding(padding, padding, padding, padding);
     }
 
+    public void setOnItemClickedListener(OnItemClickedListener onItemClickedListener) {
+        this.onItemClickedListener = onItemClickedListener;
+    }
+
     public void bind(MovieDataModel model) {
         movieDataModel = model;
 
@@ -68,5 +83,9 @@ public class MainRowItemView extends LinearLayout {
 
     public MovieDataModel getMovieDataModel() {
         return movieDataModel;
+    }
+
+    public interface OnItemClickedListener {
+        void onItemClicked(@NonNull MovieDataModel item);
     }
 }
