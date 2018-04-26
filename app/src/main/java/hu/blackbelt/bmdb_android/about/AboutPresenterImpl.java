@@ -7,17 +7,17 @@ public class AboutPresenterImpl implements AboutPresenter, AboutInteractor.OnFin
 
     private AboutView aboutView;
     private AboutInteractor aboutInteractor;
-    private int i;
+    private long movieId;
 
-    public AboutPresenterImpl(AboutView aboutView, AboutInteractor aboutInteractor, int i) {
+    public AboutPresenterImpl(AboutView aboutView, AboutInteractor aboutInteractor, long movieId) {
         this.aboutView = aboutView;
         this.aboutInteractor = aboutInteractor;
-        this.i = i;
+        this.movieId = movieId;
     }
 
     @Override
     public void onResume() {
-        aboutInteractor.getItems(this, i);
+        aboutInteractor.getItems(this, movieId);
     }
 
     @Override

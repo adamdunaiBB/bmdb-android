@@ -1,7 +1,5 @@
 package hu.blackbelt.bmdb_android.about;
 
-
-
 import hu.blackbelt.bmdb_android.common.model.MovieDataModel;
 
 public interface AboutInteractor {
@@ -10,5 +8,5 @@ public interface AboutInteractor {
         void onFinished(MovieDataModel movie);
     }
 
-    void getItems(OnFinishedListener listener, int i);
+    void getItems(OnFinishedListener listener, long id);
 }

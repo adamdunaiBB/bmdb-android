@@ -30,15 +30,14 @@ public class AboutActivity extends AppCompatActivity implements AboutView{
     @ViewById(R.id.about_description)
     TextView description;
 
-    @Extra("clickPosition")
-    void clickPosition(int position) { this.i = position; }
+    @Extra
+    long movieId;
 
     private AboutPresenter aboutPresenter;
-    private int i;
 
     @AfterViews
     void afterViews() {
-        aboutPresenter = new AboutPresenterImpl(this, new AboutInteractorImpl(), i);
+        aboutPresenter = new AboutPresenterImpl(this, new AboutInteractorImpl(), movieId);
     }
 
     @Override

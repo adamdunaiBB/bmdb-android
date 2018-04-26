@@ -46,8 +46,11 @@ public class MainActivity extends AppCompatActivity implements MainView {
         recyclerView.addOnItemTouchListener(new RecyclerTouchListener(getApplicationContext(), recyclerView, new RecyclerTouchListener.ClickListener() {
             @Override
             public void onClick(View view, int position) {
-                Log.e("MainActivity", "onClick: " + ((MainRowItemView) view).getMovieDataModel());
-                AboutActivityImpl.intent(getApplicationContext()).clickPosition(position).start();
+                MovieDataModel selectedMovieDataModel = ((MainRowItemView) view).getMovieDataModel();
+                AboutActivityImpl
+                        .intent(getApplicationContext())
+                        .movieId(selectedMovieDataModel.getId())
+                        .start();
                 mPresenter.onItemClicked(position);
             }
 

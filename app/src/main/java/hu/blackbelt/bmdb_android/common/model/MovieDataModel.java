@@ -7,6 +7,7 @@ import java.io.Serializable;
 
 public class MovieDataModel implements Serializable {
 
+    private final long id;
     private final String title;
     private final int year;
     private final String genre;
@@ -15,12 +16,17 @@ public class MovieDataModel implements Serializable {
     @DrawableRes
     private final int imageResId;
 
-    public MovieDataModel(String title, int year, String genre, String description, @DrawableRes int imageResId) {
+    public MovieDataModel(long id, String title, int year, String genre, String description, @DrawableRes int imageResId) {
+        this.id = id;
         this.title = title;
         this.year = year;
         this.genre = genre;
         this.description = description;
         this.imageResId = imageResId;
+    }
+
+    public long getId() {
+        return id;
     }
 
     public String getTitle() {
