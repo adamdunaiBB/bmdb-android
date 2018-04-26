@@ -62,9 +62,7 @@ public class MainActivity extends AppCompatActivity implements MainView {
                         .movieId(item.getId())
                         .start();
             }
-        });
 
-        recyclerViewAdapter.setOnItemLongClickedListener(new MainRowItemView.OnItemLongClickedListener() {
             @Override
             public void onItemLongClicked(@NonNull MovieDataModel item) {
                 Toast.makeText(MainActivity.this, item.getTitle(), Toast.LENGTH_SHORT).show();
