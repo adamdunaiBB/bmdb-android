@@ -7,6 +7,7 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.Toast;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.EActivity;
@@ -60,6 +61,13 @@ public class MainActivity extends AppCompatActivity implements MainView {
                         .intent(getApplicationContext())
                         .movieId(item.getId())
                         .start();
+            }
+        });
+
+        recyclerViewAdapter.setOnItemLongClickedListener(new MainRowItemView.OnItemLongClickedListener() {
+            @Override
+            public void onItemLongClicked(@NonNull MovieDataModel item) {
+                Toast.makeText(MainActivity.this, item.getTitle(), Toast.LENGTH_SHORT).show();
             }
         });
 

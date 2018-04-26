@@ -40,6 +40,8 @@ public class MainRowItemView extends LinearLayout {
 
     private OnItemClickedListener onItemClickedListener;
 
+    private OnItemLongClickedListener onItemLongClickedListener;
+
     public MainRowItemView(Context context) {
         super(context);
 
@@ -51,6 +53,14 @@ public class MainRowItemView extends LinearLayout {
             @Override
             public void onClick(View v) {
                 onItemClickedListener.onItemClicked(movieDataModel);
+            }
+        });
+
+        setOnLongClickListener(new OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                onItemLongClickedListener.onItemLongClicked(movieDataModel);
+                return true;
             }
         });
     }
@@ -72,6 +82,10 @@ public class MainRowItemView extends LinearLayout {
         this.onItemClickedListener = onItemClickedListener;
     }
 
+    public void setOnItemLongClickedListener(OnItemLongClickedListener onItemLongClickedListener) {
+        this.onItemLongClickedListener = onItemLongClickedListener;
+    }
+
     public void bind(MovieDataModel model) {
         movieDataModel = model;
 
@@ -87,5 +101,9 @@ public class MainRowItemView extends LinearLayout {
 
     public interface OnItemClickedListener {
         void onItemClicked(@NonNull MovieDataModel item);
+    }
+
+    public interface OnItemLongClickedListener {
+        void onItemLongClicked(@NonNull MovieDataModel item);
     }
 }

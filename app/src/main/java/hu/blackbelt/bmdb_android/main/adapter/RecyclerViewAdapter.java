@@ -11,6 +11,8 @@ public class RecyclerViewAdapter extends RecyclerViewAdapterBase<MovieDataModel,
 
     private MainRowItemView.OnItemClickedListener onItemClickedListener;
 
+    private MainRowItemView.OnItemLongClickedListener onItemLongClickedListener;
+
     public RecyclerViewAdapter(List<MovieDataModel> items) {
         super(items);
     }
@@ -19,10 +21,15 @@ public class RecyclerViewAdapter extends RecyclerViewAdapterBase<MovieDataModel,
         this.onItemClickedListener = onItemClickedListener;
     }
 
+    public void setOnItemLongClickedListener(MainRowItemView.OnItemLongClickedListener onItemLongClickedListener) {
+        this.onItemLongClickedListener = onItemLongClickedListener;
+    }
+
     @Override
     protected MainRowItemView onCreateItemView(ViewGroup parent, int viewType) {
         MainRowItemView rowItemView = MainRowItemViewImpl.build(parent.getContext());
         rowItemView.setOnItemClickedListener(onItemClickedListener);
+        rowItemView.setOnItemLongClickedListener(onItemLongClickedListener);
         return rowItemView;
     }
 
