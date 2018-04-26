@@ -34,6 +34,8 @@ public class MainRowItemView extends LinearLayout {
     @DimensionPixelSizeRes(R.dimen.padding_row_item)
     int padding;
 
+    private MovieDataModel movieDataModel;
+
     public MainRowItemView(Context context) {
         super(context);
 
@@ -56,9 +58,15 @@ public class MainRowItemView extends LinearLayout {
     }
 
     public void bind(MovieDataModel model) {
-        imageView.setImageResource(model.getImageResId());
-        title.setText(model.getTitle());
-        year.setText(Integer.toString(model.getYear()));
-        genre.setText(model.getGenre());
+        movieDataModel = model;
+
+        imageView.setImageResource(movieDataModel.getImageResId());
+        title.setText(movieDataModel.getTitle());
+        year.setText(Integer.toString(movieDataModel.getYear()));
+        genre.setText(movieDataModel.getGenre());
+    }
+
+    public MovieDataModel getMovieDataModel() {
+        return movieDataModel;
     }
 }
