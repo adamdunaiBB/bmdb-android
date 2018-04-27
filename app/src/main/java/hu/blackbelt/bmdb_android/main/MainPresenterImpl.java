@@ -1,8 +1,5 @@
 package hu.blackbelt.bmdb_android.main;
 
-
-import android.util.Log;
-
 import java.util.List;
 
 import hu.blackbelt.bmdb_android.common.model.MovieDataModel;
@@ -20,11 +17,6 @@ public class MainPresenterImpl implements MainPresenter, MoviesInteractor.OnFini
     @Override
     public void onResume() {
         moviesInteractor.getItems(this);
-    }
-
-    @Override
-    public void onItemClicked(int position) {
-        Log.d("MainPresenterImpl", "onItemClicked: " + position);
     }
 
     @Override
