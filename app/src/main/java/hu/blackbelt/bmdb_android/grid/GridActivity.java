@@ -19,8 +19,8 @@ import java.util.List;
 
 import hu.blackbelt.bmdb_android.R;
 import hu.blackbelt.bmdb_android.about.AboutActivityImpl;
+import hu.blackbelt.bmdb_android.common.listener.OnItemClickedListener;
 import hu.blackbelt.bmdb_android.common.model.MovieDataModel;
-import hu.blackbelt.bmdb_android.grid.adapter.GridItemView;
 import hu.blackbelt.bmdb_android.grid.adapter.RecyclerViewAdapter;
 
 @EActivity(R.layout.activity_main)
@@ -60,7 +60,7 @@ public class GridActivity extends AppCompatActivity implements GridView {
     public void setMovies(List<MovieDataModel> movies) {
         RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter(movies);
 
-        recyclerViewAdapter.setOnItemClickedListener(new GridItemView.OnItemClickedListener() {
+        recyclerViewAdapter.setOnItemClickedListener(new OnItemClickedListener() {
             @Override
             public void onItemClicked(@NonNull MovieDataModel item) {
                 AboutActivityImpl

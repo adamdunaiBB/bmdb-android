@@ -20,6 +20,7 @@ import java.util.List;
 
 import hu.blackbelt.bmdb_android.R;
 import hu.blackbelt.bmdb_android.about.AboutActivityImpl;
+import hu.blackbelt.bmdb_android.common.listener.OnItemClickedListener;
 import hu.blackbelt.bmdb_android.common.model.MovieDataModel;
 import hu.blackbelt.bmdb_android.grid.GridActivityImpl;
 import hu.blackbelt.bmdb_android.main.adapter.RecyclerViewAdapter;
@@ -62,7 +63,7 @@ public class MainActivity extends AppCompatActivity implements MainView {
     public void setMovies(List<MovieDataModel> movies) {
         RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter(movies);
 
-        recyclerViewAdapter.setOnItemClickedListener(new MainRowItemView.OnItemClickedListener() {
+        recyclerViewAdapter.setOnItemClickedListener(new OnItemClickedListener() {
             @Override
             public void onItemClicked(@NonNull MovieDataModel item) {
                 AboutActivityImpl

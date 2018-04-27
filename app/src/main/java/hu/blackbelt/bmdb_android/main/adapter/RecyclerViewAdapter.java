@@ -6,17 +6,18 @@ import java.util.List;
 
 import hu.blackbelt.bmdb_android.common.adapter.RecyclerViewAdapterBase;
 import hu.blackbelt.bmdb_android.common.adapter.ViewWrapper;
+import hu.blackbelt.bmdb_android.common.listener.OnItemClickedListener;
 import hu.blackbelt.bmdb_android.common.model.MovieDataModel;
 
 public class RecyclerViewAdapter extends RecyclerViewAdapterBase<MovieDataModel, MainRowItemView> {
 
-    private MainRowItemView.OnItemClickedListener onItemClickedListener;
+    private OnItemClickedListener onItemClickedListener;
 
     public RecyclerViewAdapter(List<MovieDataModel> items) {
         super(items);
     }
 
-    public void setOnItemClickedListener(MainRowItemView.OnItemClickedListener onItemClickedListener) {
+    public void setOnItemClickedListener(OnItemClickedListener onItemClickedListener) {
         this.onItemClickedListener = onItemClickedListener;
     }
 

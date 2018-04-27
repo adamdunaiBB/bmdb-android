@@ -1,7 +1,6 @@
 package hu.blackbelt.bmdb_android.grid.adapter;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
@@ -16,10 +15,11 @@ import org.androidannotations.annotations.ViewById;
 import org.androidannotations.annotations.res.DimensionPixelSizeRes;
 
 import hu.blackbelt.bmdb_android.R;
+import hu.blackbelt.bmdb_android.common.listener.OnItemClickedListener;
 import hu.blackbelt.bmdb_android.common.model.MovieDataModel;
 
 @EViewGroup(R.layout.view_grid_item)
-public class GridItemView extends RelativeLayout {
+public class GridItemView extends RelativeLayout{
 
     @ViewById(R.id.grid_item_image)
     ImageView imageView;
@@ -82,11 +82,5 @@ public class GridItemView extends RelativeLayout {
 
     public MovieDataModel getMovieDataModel() {
         return movieDataModel;
-    }
-
-    public interface OnItemClickedListener {
-        void onItemClicked(@NonNull MovieDataModel item);
-
-        void onItemLongClicked(@NonNull MovieDataModel item);
     }
 }
