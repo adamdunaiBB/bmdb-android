@@ -17,9 +17,10 @@ import org.androidannotations.annotations.res.DimensionPixelSizeRes;
 import hu.blackbelt.bmdb_android.R;
 import hu.blackbelt.bmdb_android.common.listener.OnItemClickedListener;
 import hu.blackbelt.bmdb_android.common.model.MovieDataModel;
+import hu.blackbelt.bmdb_android.common.view.BaseItemView;
 
 @EViewGroup(R.layout.view_main_row_item)
-public class MainRowItemView extends LinearLayout {
+public class MainRowItemView extends LinearLayout implements BaseItemView {
 
     @ViewById(R.id.row_item_image)
     ImageView imageView;
@@ -76,10 +77,12 @@ public class MainRowItemView extends LinearLayout {
         setPadding(padding, padding, padding, padding);
     }
 
+    @Override
     public void setOnItemClickedListener(OnItemClickedListener onItemClickedListener) {
         this.onItemClickedListener = onItemClickedListener;
     }
 
+    @Override
     public void bind(MovieDataModel model) {
         movieDataModel = model;
 

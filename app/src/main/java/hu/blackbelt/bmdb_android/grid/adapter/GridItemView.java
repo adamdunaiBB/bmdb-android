@@ -17,9 +17,10 @@ import org.androidannotations.annotations.res.DimensionPixelSizeRes;
 import hu.blackbelt.bmdb_android.R;
 import hu.blackbelt.bmdb_android.common.listener.OnItemClickedListener;
 import hu.blackbelt.bmdb_android.common.model.MovieDataModel;
+import hu.blackbelt.bmdb_android.common.view.BaseItemView;
 
 @EViewGroup(R.layout.view_grid_item)
-public class GridItemView extends RelativeLayout{
+public class GridItemView extends RelativeLayout implements BaseItemView {
 
     @ViewById(R.id.grid_item_image)
     ImageView imageView;
@@ -69,10 +70,12 @@ public class GridItemView extends RelativeLayout{
         setPadding(padding, padding, padding, padding);
     }
 
+    @Override
     public void setOnItemClickedListener(OnItemClickedListener onItemClickedListener) {
         this.onItemClickedListener = onItemClickedListener;
     }
 
+    @Override
     public void bind(MovieDataModel model) {
         movieDataModel = model;
 

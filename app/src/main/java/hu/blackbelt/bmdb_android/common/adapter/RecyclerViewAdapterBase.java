@@ -9,9 +9,9 @@ import java.util.List;
 
 public abstract class RecyclerViewAdapterBase<T, V extends View> extends RecyclerView.Adapter<ViewWrapper<V>> {
 
-    protected final List<T> items;
+    final List<T> items;
 
-    protected RecyclerViewAdapterBase(List<T> items) {
+    RecyclerViewAdapterBase(List<T> items) {
         this.items = items;
     }
 
