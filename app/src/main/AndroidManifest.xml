@@ -17,6 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".about.AboutActivityImpl"/>
+        <activity android:name=".grid.GridActivityImpl"/>
     </application>
 
 </manifest>

@@ -1,4 +1,4 @@
-package hu.blackbelt.bmdb_android.main.adapter;
+package hu.blackbelt.bmdb_android.common.adapter;
 
 
 import android.support.v7.widget.RecyclerView;
@@ -9,9 +9,9 @@ import java.util.List;
 
 public abstract class RecyclerViewAdapterBase<T, V extends View> extends RecyclerView.Adapter<ViewWrapper<V>> {
 
-    final List<T> items;
+    protected final List<T> items;
 
-    RecyclerViewAdapterBase(List<T> items) {
+    protected RecyclerViewAdapterBase(List<T> items) {
         this.items = items;
     }
 

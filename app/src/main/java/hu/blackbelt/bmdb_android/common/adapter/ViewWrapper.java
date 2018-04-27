@@ -1,4 +1,4 @@
-package hu.blackbelt.bmdb_android.main.adapter;
+package hu.blackbelt.bmdb_android.common.adapter;
 
 
 import android.support.v7.widget.RecyclerView;

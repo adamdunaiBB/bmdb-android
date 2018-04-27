@@ -1,10 +1,11 @@
 package hu.blackbelt.bmdb_android.main.adapter;
 
-
 import android.view.ViewGroup;
 
 import java.util.List;
 
+import hu.blackbelt.bmdb_android.common.adapter.RecyclerViewAdapterBase;
+import hu.blackbelt.bmdb_android.common.adapter.ViewWrapper;
 import hu.blackbelt.bmdb_android.common.model.MovieDataModel;
 
 public class RecyclerViewAdapter extends RecyclerViewAdapterBase<MovieDataModel, MainRowItemView> {
