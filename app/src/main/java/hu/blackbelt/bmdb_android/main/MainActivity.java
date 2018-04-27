@@ -7,6 +7,10 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.Toast;
 
 import org.androidannotations.annotations.AfterViews;
@@ -23,6 +27,9 @@ import hu.blackbelt.bmdb_android.main.adapter.RecyclerViewAdapter;
 
 @EActivity(R.layout.activity_main)
 public class MainActivity extends AppCompatActivity implements MainView {
+
+    @ViewById(R.id.main_toolbar)
+    Toolbar toolbar;
 
     @ViewById(R.id.recycler_view)
     RecyclerView recyclerView;
@@ -42,6 +49,8 @@ public class MainActivity extends AppCompatActivity implements MainView {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
+
+        setSupportActionBar(toolbar);
     }
 
     @Override
@@ -70,5 +79,21 @@ public class MainActivity extends AppCompatActivity implements MainView {
         });
 
         recyclerView.setAdapter(recyclerViewAdapter);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.menu_grid_view) {
+            Log.e("MainActivity", "onOptionsItemSelected: " );
+            return true;
+        } else {
+            return super.onOptionsItemSelected(item);
+        }
     }
 }
