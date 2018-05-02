@@ -3,6 +3,7 @@ package hu.blackbelt.bmdb_android.main.adapter;
 import android.content.Context;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
+import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -74,6 +75,9 @@ public class MainRowItemView extends LinearLayout implements BaseItemView {
 
     @AfterViews
     void afterViews() {
+        TypedValue outValue = new TypedValue();
+        getContext().getTheme().resolveAttribute(android.R.attr.selectableItemBackground, outValue, true);
+        setBackgroundResource(outValue.resourceId);
         setPadding(padding, padding, padding, padding);
     }
 
