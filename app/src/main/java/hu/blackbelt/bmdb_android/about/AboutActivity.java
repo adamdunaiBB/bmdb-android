@@ -1,5 +1,7 @@
 package hu.blackbelt.bmdb_android.about;
 
+import android.os.Build;
+import android.support.v4.view.ViewCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -13,7 +15,7 @@ import hu.blackbelt.bmdb_android.R;
 import hu.blackbelt.bmdb_android.common.model.MovieDataModel;
 
 @EActivity(R.layout.activity_about)
-public class AboutActivity extends AppCompatActivity implements AboutView{
+public class AboutActivity extends AppCompatActivity implements AboutView {
 
     @ViewById(R.id.about_title)
     TextView title;
@@ -38,6 +40,9 @@ public class AboutActivity extends AppCompatActivity implements AboutView{
     @AfterViews
     void afterViews() {
         aboutPresenter = new AboutPresenterImpl(this, new AboutInteractorImpl(), movieId);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            ViewCompat.setTransitionName(imageView, String.valueOf(movieId));
+        }
     }
 
     @Override

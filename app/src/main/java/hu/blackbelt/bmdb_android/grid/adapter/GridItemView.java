@@ -44,7 +44,7 @@ public class GridItemView extends RelativeLayout implements BaseItemView {
         setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                onItemClickedListener.onItemClicked(movieDataModel);
+                onItemClickedListener.onItemClicked(movieDataModel, imageView);
             }
         });
 
@@ -81,6 +81,11 @@ public class GridItemView extends RelativeLayout implements BaseItemView {
 
         imageView.setImageResource(movieDataModel.getImageResId());
         title.setText(movieDataModel.getTitle());
+    }
+
+    @Override
+    public ImageView getCoverImageView() {
+        return imageView;
     }
 
     public MovieDataModel getMovieDataModel() {

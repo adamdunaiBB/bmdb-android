@@ -2,6 +2,8 @@ package hu.blackbelt.bmdb_android.main;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityOptionsCompat;
+import android.support.v4.view.ViewCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.DividerItemDecoration;
@@ -10,6 +12,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import org.androidannotations.annotations.AfterViews;
@@ -61,14 +64,22 @@ public class MainActivity extends AppCompatActivity implements MainView {
 
     @Override
     public void setMovies(List<MovieDataModel> movies) {
-        RecyclerViewAdapterBase recyclerViewAdapter = new RecyclerViewAdapterBase(movies);
+        final RecyclerViewAdapterBase recyclerViewAdapter = new RecyclerViewAdapterBase(movies);
 
         recyclerViewAdapter.setOnItemClickedListener(new OnItemClickedListener() {
             @Override
-            public void onItemClicked(@NonNull MovieDataModel item) {
+            public void onItemClicked(@NonNull MovieDataModel item, ImageView coverImageView) {
+
+                ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(
+                        MainActivity.this,
+                        coverImageView,
+                        ViewCompat.getTransitionName(coverImageView)
+                );
+
                 AboutActivityImpl
-                        .intent(getApplicationContext())
+                        .intent(MainActivity.this)
                         .movieId(item.getId())
+                        .withOptions(options.toBundle())
                         .start();
             }
 

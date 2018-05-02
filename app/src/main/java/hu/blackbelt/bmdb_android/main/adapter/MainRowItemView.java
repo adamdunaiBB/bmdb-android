@@ -52,7 +52,7 @@ public class MainRowItemView extends LinearLayout implements BaseItemView {
         setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                onItemClickedListener.onItemClicked(movieDataModel);
+                onItemClickedListener.onItemClicked(movieDataModel, imageView);
             }
         });
 
@@ -66,7 +66,7 @@ public class MainRowItemView extends LinearLayout implements BaseItemView {
     }
 
     public MainRowItemView(Context context, @Nullable AttributeSet attrs) {
-        this(context);
+        super(context, attrs);
     }
 
     public MainRowItemView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
@@ -94,6 +94,11 @@ public class MainRowItemView extends LinearLayout implements BaseItemView {
         title.setText(movieDataModel.getTitle());
         year.setText(Integer.toString(movieDataModel.getYear()));
         genre.setText(movieDataModel.getGenre());
+    }
+
+    @Override
+    public ImageView getCoverImageView() {
+        return imageView;
     }
 
     public MovieDataModel getMovieDataModel() {

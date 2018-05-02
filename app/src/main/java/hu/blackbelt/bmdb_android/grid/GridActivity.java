@@ -9,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import org.androidannotations.annotations.AfterViews;
@@ -62,7 +63,7 @@ public class GridActivity extends AppCompatActivity implements GridView {
 
         recyclerViewAdapter.setOnItemClickedListener(new OnItemClickedListener() {
             @Override
-            public void onItemClicked(@NonNull MovieDataModel item) {
+            public void onItemClicked(@NonNull MovieDataModel item, ImageView coverImageView) {
                 AboutActivityImpl
                         .intent(getApplicationContext())
                         .movieId(item.getId())

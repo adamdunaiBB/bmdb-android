@@ -1,6 +1,7 @@
 package hu.blackbelt.bmdb_android.common.adapter;
 
 import android.content.Context;
+import android.support.v4.view.ViewCompat;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -32,7 +33,9 @@ public abstract class BaseMovieListRecyclerViewAdapter<V extends View & BaseItem
     @Override
     public void onBindViewHolder(ViewWrapper<V> holder, int position) {
         V view = holder.getView();
-        view.bind(items.get(position));
+        MovieDataModel model = items.get(position);
+        view.bind(model);
+        ViewCompat.setTransitionName(view.getCoverImageView(), String.valueOf(model.getId()));
     }
 
     protected abstract V getItemView(Context context);
