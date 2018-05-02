@@ -101,7 +101,7 @@ public class MainActivity extends AppCompatActivity implements MainView {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (R.id.menu_grid_view == item.getItemId()) {
-            GridActivityImpl.intent(getApplicationContext()).start();
+            GridActivityImpl.intent(MainActivity.this).start();
             return true;
         } else {
             return super.onOptionsItemSelected(item);
