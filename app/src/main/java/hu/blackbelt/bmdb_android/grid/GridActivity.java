@@ -2,6 +2,8 @@ package hu.blackbelt.bmdb_android.grid;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityOptionsCompat;
+import android.support.v4.view.ViewCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
@@ -64,9 +66,17 @@ public class GridActivity extends AppCompatActivity implements GridView {
         recyclerViewAdapter.setOnItemClickedListener(new OnItemClickedListener() {
             @Override
             public void onItemClicked(@NonNull MovieDataModel item, ImageView coverImageView) {
+
+                ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(
+                        GridActivity.this,
+                        coverImageView,
+                        ViewCompat.getTransitionName(coverImageView)
+                );
+
                 AboutActivityImpl
-                        .intent(getApplicationContext())
+                        .intent(GridActivity.this)
                         .movieId(item.getId())
+                        .withOptions(options.toBundle())
                         .start();
             }
 
